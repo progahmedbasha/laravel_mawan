@@ -76,7 +76,7 @@ class ProductsController extends Controller
     {
          $data = Product::find($id);
    
-        $categories = Category::all();
+        $categories = Category::whereNotNull('parent_id')->with('parent')->get();
         return view('products_edite', compact('data','id','categories'));
     }
 

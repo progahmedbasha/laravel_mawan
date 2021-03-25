@@ -36,19 +36,10 @@
                                                            
                                                        <select name="category_id" class="form-control" >
                                                         
-                                                        <option>
-                                                           @if($data->Category->parent_id !=null)
-                                                           {{$data->Category->parent->title}}\{{$data->Category->title}}
-                                                            @else
-                                                          {{$data->Category->title}}
-                                                          @endif
-                                                        </option>
 
                                                         @foreach($categories as $item)
                                                           @if($item->parent !=null)
-                                                           <option value="{{$item->id}}">{{$item->parent->title}}\{{$item->title}}</option>
-                                                         @else
-                                                          <option value="{{$item->id}}">{{$item->title}}</option>
+                                                           <option value="{{$item->id}}" {{($item->id == $data->category_id )? 'selected' : '' }}>{{$item->parent->title}}\{{$item->title}}</option>
                                                           @endif
 
                                                          @endforeach       
