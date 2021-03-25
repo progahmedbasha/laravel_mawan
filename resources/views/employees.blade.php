@@ -199,7 +199,7 @@
                                     </table>
                              
 
-                                    <h1 class="text-center">لايوجد أصناف</h1>
+                                   
 
                            
                                     </table>
