@@ -25,3 +25,5 @@ Route::resource('categories', 'CategoriesController');
 
 Route::resource('products', 'ProductsController');
 
+Route::resource('employees', 'EmployeesController');
+
