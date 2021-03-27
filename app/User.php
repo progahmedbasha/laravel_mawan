@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
     public function usertype()
     {
-      return $this->belongsTo('App\Models\User_type');
+      return $this->belongsTo('App\Models\User_type','user_type_id');
     }
 }

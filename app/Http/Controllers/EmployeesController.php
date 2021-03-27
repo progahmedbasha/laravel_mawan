@@ -14,7 +14,9 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        // $user = User::all();
+        $user =  User::with('usertype')->get();
+        // return $user;
         return view('employees',compact('user'));
     }
 

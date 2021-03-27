@@ -175,11 +175,7 @@
                                               <td>{{$item->name}}</td> 
                                               <td>{{$item->email}}</td>
                                               <td>{{$item->phone}}</td> 
-                                              @if($item->user_type ==1)
-                                              <td>Admin</td>
-                                              @else
-                                              <td>employee</td> 
-                                              @endif
+                                             <td>{{$item->usertype->name}}</td>
                                              
                                                     <td>
                                                         <div class="btn-icon-list" >
