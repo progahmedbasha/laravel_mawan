@@ -78,12 +78,13 @@
                             <div class="col-md-6">
 <!--                                 <input id="user_type" type="user_type" class="form-control @error('user_type') is-invalid @enderror" name="user_type" value="{{ old('user_type') }}" required autocomplete="user_type">
  -->
-                                                  <select name="user_type" class="form-control">
+                                                  <select name="user_type_id" class="form-control">
                                                         <option>choose permission</option>
                                                       
-                                                           <option value="1">Admin</option>
-                                                    
-                                                          <option value="2">Employee</option>
+                                                           @foreach($usertype as $item)
+                                                           <option value="{{$item->id}}">{{$item->name}}</option>
+
+                                                           @endforeach
                                  
                                                            
                                                         </select>   
@@ -169,14 +170,14 @@
                                         </tfoot>
                                         <tbody>
 
-
                                             @foreach($user as $item)
+                                            @if($item->user_type_id !=1)
 
                                               <td>{{$item->name}}</td> 
                                               <td>{{$item->email}}</td>
                                               <td>{{$item->phone}}</td> 
                                              <td>{{$item->usertype->name}}</td>
-                                             
+                                            
                                                     <td>
                                                         <div class="btn-icon-list" >
                                                             <a href="categories/{{$item->id}}/edit">
@@ -188,8 +189,9 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                @endforeach
+                                                 @endif
 
+                                                @endforeach
 
                                         </tbody>
                                     </table>

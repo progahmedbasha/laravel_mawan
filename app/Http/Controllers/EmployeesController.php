@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\User_type;
 use Illuminate\Support\Facades\Hash;
 class EmployeesController extends Controller
 {
@@ -14,10 +15,10 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        // $user = User::all();
         $user =  User::with('usertype')->get();
-        // return $user;
-        return view('employees',compact('user'));
+        $usertype = User_type::all();
+      
+        return view('employees',compact('user','usertype'));
     }
 
     /**
@@ -42,7 +43,7 @@ class EmployeesController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'phone' => $request['phone'],
-            'user_type' => $request['user_type'],
+            'user_type_id' => $request['user_type_id'],
             'password' => Hash::make($request['password']),
         ]);
       
