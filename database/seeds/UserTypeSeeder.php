@@ -13,11 +13,8 @@ class UserTypeSeeder extends Seeder
     public function run()
     {
         DB::table('user_types')->insert([
-            'name' => 'admin2',
-            // 'email' => 'admin2@email.com',
-            // 'phone' => '01000000001',
-            // 'user_type_id' => '1',
-            // 'password' => Hash::make('12345678'),
+            'name' => 'admin',
+
         ]);
     }
 }
