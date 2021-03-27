@@ -36,8 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-}
-public function usertype()
+    public function usertype()
     {
       return $this->belongsTo('App\Models\User_type');
     }
+}
