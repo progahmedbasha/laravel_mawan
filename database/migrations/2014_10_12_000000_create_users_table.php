@@ -18,7 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name',150);
             $table->string('email',150)->unique();
             $table->string('phone',15)->unique();
-            $table->integer('user_type')->default('0');
+            
+
+            $table->integer('user_type_id')->unsigned();
+            $table->foreign('user_type_id')->references('id')->on('user_types');
+            
             $table->timestamp('email_verified_at')->nullable();
             $table->text('password');
             $table->rememberToken();
