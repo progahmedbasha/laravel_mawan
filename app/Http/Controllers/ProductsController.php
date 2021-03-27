@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Validator;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -39,6 +39,14 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+
+            'barcode'=> 'required|unique:products'
+
+
+            ]  
+            );
+
         $product = new Product;
         $product->barcode =$request->barcode;
         $product->name=$request->name;

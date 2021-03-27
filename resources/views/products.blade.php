@@ -7,6 +7,16 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                             <li class="breadcrumb-item active">Products</li>
+
+                                               @if(count($errors))
+                                                <ul>
+                                                  @foreach($errors->all() as $error)
+                                                  <li>{{$error}}</li>
+                                                  @endforeach
+
+                                                </ul>
+
+                                                @endif
                         </ol>
                 <br>
                   <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-plus"></span>&nbsp;Add</button>
@@ -35,12 +45,14 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">رقم المنتج</label>
-                                                         <input type="text" name="barcode" class="form-control" placeholder="ادخل رقم المنتج">
+                                                         <input type="text" name="barcode" value="{{ old('barcode') }}" class="form-control" placeholder="ادخل رقم المنتج">
 
                                                     
                                                         <span class="text-danger" id="supplier_id_error"></span>
                                                     </div>
                                                 </div>
+
+                                                
 
                                                 {{--  RESEVER NAME   --}}
                                                 <div class="col-md-6">
@@ -97,8 +109,7 @@
                                                         @foreach($categories as $item)
                                                           @if($item->parent !=null)
                                                            <option value="{{$item->id}}">{{$item->parent->title}}\{{$item->title}}</option>
-                                                         @else
-                                                          <option value="{{$item->id}}">{{$item->title}}</option>
+                                                         
                                                           @endif
 
                                                          @endforeach       
@@ -221,5 +232,7 @@
                         </div>
                     </div>
                 </main>
+
+
 
 @stop
