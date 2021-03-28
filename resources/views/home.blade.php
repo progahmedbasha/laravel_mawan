@@ -17,6 +17,20 @@
 
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <a class="navbar-brand">Welcome : {{Auth::user()->name}}</a>
+
+
+
+
+
+
+<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+    Logout
+</a>    
+<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
+
+            
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
