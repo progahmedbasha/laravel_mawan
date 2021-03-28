@@ -11,7 +11,7 @@
                                                @if(count($errors))
                                                 <ul>
                                                   @foreach($errors->all() as $error)
-                                                  <li>{{$error}}</li>
+                                                  <li style="color:red;">{{$error}}</li>
                                                   @endforeach
 
                                                 </ul>
@@ -58,7 +58,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">اسم المنتج</label>
-                                                        <input type="text" name="name" class="form-control" placeholder="ادخل اسم المنتج">
+                                                        <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="ادخل اسم المنتج">
                                                     
                                                             <span class="text-danger" id="resever_name_error"></span>
                                                     </div>
@@ -68,7 +68,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">سعر الشراء</label>
-                                                        <input type="text" name="buy_price" class="form-control" placeholder="ادخل سعر الشراء">
+                                                        <input type="text" name="buy_price" value="{{ old('buy_price') }}" class="form-control" placeholder="ادخل سعر الشراء">
                                                     
                                                             <span class="text-danger" id="resver_phone_error"></span>
                                                     </div>
@@ -79,7 +79,7 @@
                                                     <div class="form-group">
                                                         <label for="">سعر البيع</label>
                                                         
-                                                        <input type="text" name="sell_price" class="form-control" placeholder="ادخل سعر البيع">
+                                                        <input type="text" name="sell_price" value="{{ old('sell_price') }}" class="form-control" placeholder="ادخل سعر البيع">
 
                                                     </div>
                                                 </div>
@@ -89,7 +89,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">الكمية</label>
-                                                        <input type="text" name="qty" class="form-control" placeholder="ادخل الكمية">
+                                                        <input type="text" name="qty" value="{{ old('qty') }}" class="form-control" placeholder="ادخل الكمية">
 
                                                         <span class="text-danger" id="city_id_error"></span>
                                                     </div> 
@@ -104,11 +104,11 @@
                                                         <label for="">الصنف</label>
                                                     
                                                            
-                                                       <select name="category_id" class="form-control">
-                                                        <option>اختار الصنف</option>
+                                                       <select name="category_id"  class="form-control">
+                                                        <option >اختار الصنف</option>
                                                         @foreach($categories as $item)
                                                           @if($item->parent !=null)
-                                                           <option value="{{$item->id}}">{{$item->parent->title}}\{{$item->title}}</option>
+                                                           <option value="{{$item->id}}"  >{{$item->parent->title}}\{{$item->title}}</option>
                                                          
                                                           @endif
 

@@ -72,29 +72,7 @@
                         </div>
 
 
-                        <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('user_type') }}</label>
-
-                            <div class="col-md-6">
-<!--                                 <input id="user_type" type="user_type" class="form-control @error('user_type') is-invalid @enderror" name="user_type" value="{{ old('user_type') }}" required autocomplete="user_type">
- -->
-                                                  <select name="user_type_id" class="form-control">
-                                                        <option>choose permission</option>
-                                                      
-                                                           @foreach($usertype as $item)
-                                                           <option value="{{$item->id}}">{{$item->name}}</option>
-
-                                                           @endforeach
-                                 
-                                                           
-                                                        </select>   
-                                @error('user_type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+             
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -180,7 +158,7 @@
                                             
                                                     <td>
                                                         <div class="btn-icon-list" >
-                                                            <a href="categories/{{$item->id}}/edit">
+                                                            <a href="employees/{{$item->id}}/edit">
                                                                 <button class="btn btn-indigo btn-icon"><i class="fa fa-edit"></i></button>
                                                             </a>&nbsp;
                                                             <a href="" class="makeDeleteCity" city_id=" ">

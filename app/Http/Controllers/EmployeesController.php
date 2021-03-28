@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Models\User_type;
+use App\Models\User;
+use App\Models\UserType;
 use Illuminate\Support\Facades\Hash;
 class EmployeesController extends Controller
 {
@@ -16,9 +16,9 @@ class EmployeesController extends Controller
     public function index()
     {
         $user =  User::with('usertype')->get();
-        $usertype = User_type::all();
+        
       
-        return view('employees',compact('user','usertype'));
+        return view('employees',compact('user'));
     }
 
     /**
@@ -43,7 +43,7 @@ class EmployeesController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'phone' => $request['phone'],
-            'user_type_id' => $request['user_type_id'],
+            'user_type_id' => '2',
             'password' => Hash::make($request['password']),
         ]);
       
@@ -69,9 +69,10 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $data = User::find($id);
+        return view('employees_edite', compact('data','id'));
     }
 
     /**
@@ -81,9 +82,11 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request ,$id)
     {
-        //
+            $data = User::find($id);
+            $data ->update($request->all());
+           return redirect('employees');
     }
 
     /**

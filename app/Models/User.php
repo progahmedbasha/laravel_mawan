@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
     public function usertype()
     {
-      return $this->belongsTo('App\Models\User_type','user_type_id');
+      return $this->belongsTo('App\Models\UserType','user_type_id');
     }
 }
