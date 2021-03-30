@@ -20,8 +20,6 @@ class CategoriesController extends Controller
     {
           $data =  Category::with('parent')->get();
 
-
-
         return view('categories', compact('data'));
     }
 

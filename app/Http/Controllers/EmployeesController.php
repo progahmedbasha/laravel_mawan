@@ -21,7 +21,7 @@ class EmployeesController extends Controller
     {
         $user =  User::with('usertype')->get();
         
-      
+
         return view('employees',compact('user'));
     }
 
@@ -50,7 +50,7 @@ class EmployeesController extends Controller
             'user_type_id' => '2',
             'password' => Hash::make($request['password']),
         ]);
-      
+
         return back();
 
 
